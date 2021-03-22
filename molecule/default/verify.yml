@@ -1,0 +1,14 @@
+---
+- name: Verify
+  hosts: all
+
+  tasks:
+    - name: Collect package facts.
+      package_facts:
+        manager: "auto"
+  #  - name: Verify Visual Studio Code is installed.
+  #    assert:
+  #      that:
+  #        - "'code' in ansible_facts.packages"
+  #      success_msg: "Visual Studio Code is installed."
+  #      fail_msg: "Visual Studio Code is not installed."

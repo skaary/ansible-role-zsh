@@ -1,0 +1,20 @@
+---
+- name: Converge
+  hosts: all
+
+  pre_tasks:
+    - name: Update apt cache.
+      apt: update_cache=true cache_valid_time=600
+
+    - name: ensure preReq pckgs are installed
+      apt:
+        name:
+          - git
+          - curl
+          - wget
+        state: present
+
+  tasks:
+    - name: "Include ansible-role-zsh"
+      include_role:
+        name: "ansible-role-zsh"
