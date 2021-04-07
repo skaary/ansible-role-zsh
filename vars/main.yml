@@ -1,6 +1,0 @@
----
-zsh_package: zsh
-zsh_plugin_directory: /usr/share/zsh/plugins/
-zsh-syntax-highlighting_repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
-
-powerline_package: powerline
