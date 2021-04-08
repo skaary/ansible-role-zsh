@@ -1,6 +1,12 @@
 ---
 - name: Converge
   hosts: all
+  vars:
+    users:
+      - name: vagrant
+        group: vagrant
+      - name: ipsum
+        group: ipsum
 
   pre_tasks:
     - name: Update apt cache.
@@ -12,9 +18,13 @@
           - git
           - curl
           - wget
+          - vim
         state: present
 
   tasks:
     - name: "Include ansible-role-zsh"
       include_role:
         name: "ansible-role-zsh"
+      vars:
+        zsh_user: "{{ item }}"
+        with_items: "{{ users }}"
