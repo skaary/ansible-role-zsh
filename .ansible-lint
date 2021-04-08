@@ -5,3 +5,4 @@ skip_list:
   - 'git-latest'
   - 'experimental'
   - 'no-handler'
+  - 'meta-no-info'
