@@ -1,0 +1,14 @@
+---
+- name: Prepare
+  hosts: all
+  gather_facts: false
+  become: true
+  tasks:
+    - name: Create users.
+      user:
+        name: "{{ item.name }}"
+      with_items:
+        - name: "vagrant"
+          group: "vagrant"
+        - name: "ipsum"
+          group: "ipsum"
