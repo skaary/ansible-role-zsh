@@ -1,0 +1,13 @@
+---
+- name: install zsh plugins from git repositories
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ zsh_plugin_directory }}/{{ item.name }}"
+    depth: "1"
+  become: true
+  with_items: "{{ zsh_plugins_git }}"
+  register: git_plugins
+
+- name: install plugins from package manager
+  apt:
+    name: "{{ zsh_plugins_package_manager }}"
