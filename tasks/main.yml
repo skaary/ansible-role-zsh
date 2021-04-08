@@ -1,48 +1,15 @@
 ---
-- name: ensure zsh is installed
-  apt:
-    name: "{{ zsh_package }}"
-    state: present
+- name: install zsh
+  include_tasks: zsh.yml
 
-- name: register zsh binary
-  command: which zsh
-  register: zsh_bin
-  changed_when: false
+- name: install zsh plugin(s)
+  include_tasks: zsh-plugins.yml
+  when: zsh_plugins_git or zsh_plugins_package_manager
 
-- name: change default shell to zsh for current user
-  user:
-    # name: "{{ ansible_env.USER }}"
-    name: root
-    shell: "{{ zsh_bin.stdout }}"
-  become: true
+- name: install oh-my-zsh
+  include_tasks: oh-my-zsh-install.yml
+  when: omz_install
 
-- name: ensure zsh plugin directory exists
-  file:
-    state: directory
-    path: "{{ zsh_plugin_directory }}"
-    mode: 0755
-    owner: root
-    group: root
-  become: true
-
-# https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
-#- name: install zsh-syntax-highlighting
-#  git:
-#    repo: "{{ zsh-syntax-highlighting_repo }}"
-#    dest: "{{ zsh_plugin_directory }}"
-#    depth: "1"
-#  become: true
-
-- name: install powerline10k theme
-  git:
-    repo: https://github.com/romkatv/powerlevel10k.git
-    dest: "{{ zsh_plugin_directory }}"
-    depth: "1"
-  become: true
-
-# - name: install z plugin #https://github.com/rupa/z/blob/master/README
-
-- name: ensure powerline is installed
-  apt:
-    name: "{{ powerline_package }}"
-  # when: powerline|bool == True
+- name: configure oh-my-zsh
+  include_tasks: oh-my-zsh-configure.yml
+  when: omz_configure
