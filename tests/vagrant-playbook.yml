@@ -1,0 +1,6 @@
+---
+- hosts: all
+  vars: 
+    #
+  roles: 
+    - ../ansible-role-zsh
