@@ -1,0 +1,30 @@
+---
+- name: ensure zsh is installed
+  apt:
+    name: "{{ zsh_package_name }}"
+    state: present
+
+- name: register zsh binary path
+  command: which zsh
+  register: zsh_bin
+  changed_when: false
+
+- name: change default user shell to zsh
+  user:
+    name: "{{ zsh_user_name }}"
+    shell: "{{ zsh_bin.stdout }}"
+
+- name: change default path for .zshrc by adding ZDOTDIR env to zshenv
+  blockinfile:
+    path: /etc/zsh/zshenv
+    block: |
+      ZDOTDIR={{ ZDOTDIR }}
+      HISTFILE={{ HISTFILE }}
+  become: true
+
+- name: ensure ZDOTDIR exists
+  file:
+    path: "{{ ZDOTDIR }}"
+    state: directory
+    owner: "{{ zsh_user_name }}"
+    group: "{{ zsh_user_group }}"
