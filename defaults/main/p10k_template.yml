@@ -1,5 +1,0 @@
----
-# ZSH powerlevel10k specific variables
-POWERLEVEL9K_TRANSIENT_PROMPT: off #options (off | always | same-dir)
-POWERLEVEL9K_INSTANT_PROMPT: verbose # options (off | quiet | verbose)
-POWERLEVEL9K_PROMPT_ADD_NEWLINE: false # options ( false | true )
