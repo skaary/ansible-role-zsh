@@ -1,0 +1,20 @@
+---
+- name: ensure oh-my-zsh package requirements are installed
+  apt:
+    name: "{{ omz_shared_packages }}"
+    state: present
+
+- name: clone oh-my-zsh repo
+  git:
+    repo: "{{ omz_git_repository }}"
+    dest: "{{ omz_install_path }}"
+    update: true
+  register: omz_clone
+
+- name: set ownership on newly cloned repository
+  file:
+    path: "{{ omz_install_path }}"
+    owner: "{{ zsh_user_name }}"
+    group: "{{ zsh_user_group }}"
+    recurse: true
+  when: "omz_clone is changed"

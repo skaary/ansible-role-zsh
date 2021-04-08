@@ -1,0 +1,20 @@
+---
+- name: use zshrc template to set .zshrc
+  template:
+    src: "{{ omz_zshrc_template }}"
+    dest: "{{ zshrc_path }}"
+    owner: "{{ zsh_user_name }}"
+    group: "{{ zsh_user_group }}"
+    backup: "{{ omz_zshrc_backup }}"
+    force: "{{ omz_zshrc_force }}"
+  when: omz_zshrc_create and not zsh_plugins_git
+
+- name: use zshrc template with source plugins to set .zshrc
+  template:
+    src: "{{ omz_zshrc_template_plugins }}"
+    dest: "{{ zshrc_path }}"
+    owner: "{{ zsh_user_name }}"
+    group: "{{ zsh_user_group }}"
+    backup: "{{ omz_zshrc_backup }}"
+    force: "{{ omz_zshrc_force }}"
+  when: omz_zshrc_create and zsh_plugins_git
