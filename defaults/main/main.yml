@@ -1,0 +1,42 @@
+---
+# ZSH vars
+zsh_user:
+  []
+  # - name: vagrant
+  #   group: vagrant
+  # - name: ipsum
+  #   group: ipsum
+#    settings: |
+#     export PATH="/usr/local/sbin:$path"
+zsh_package_name: zsh
+zsh_user_name: vagrant
+zsh_user_group: vagrant
+zsh_user_home: "/home/{{ zsh_user_name }}"
+zsh_user_XDG_CONFIG: "/home/{{ zsh_user_name }}/.config"
+ZDOTDIR: "{{ zsh_user_XDG_CONFIG }}/zsh"
+HISTFILE: "{{ zsh_user_XDG_CONFIG }}/zsh/zsh_history"
+zshrc_path: "{{ ZDOTDIR }}/.zshrc"
+
+# Oh My ZSH vars.
+omz_install: true
+omz_configure: true
+omz_git_repository: "https://github.com/robbyrussell/oh-my-zsh.git"
+omz_install_directory: "oh-my-zsh"
+omz_install_path: "{{ zsh_user_XDG_CONFIG }}/{{ omz_install_directory }}"
+omz_shared_packages:
+  - git
+  - curl
+
+# ZSH plugins
+zsh_plugin_directory: /usr/share/zsh/plugins
+zsh_plugins:
+  - name: zsh-syntax-highlighting
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+  - name: powerlevel10k
+    repo: https://github.com/romkatv/powerlevel10k.git
+
+zsh_plugin_syntax_highlighting_install: true
+zsh_plugin_syntax_highlighting_repository: https://github.com/zsh-users/zsh-syntax-highlighting.git
+zsh_plugin_powerlevel10k_theme_install: true
+zsh_plugin_powerlevel10k_theme_repository: https://github.com/romkatv/powerlevel10k.git
+powerline_package: powerline
