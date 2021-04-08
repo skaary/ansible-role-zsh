@@ -1,0 +1,257 @@
+1c1
+< # Config for Powerlevel10k with classic powerline prompt style. Type `p10k configure` to generate
+---
+> # Config for Powerlevel10k with lean prompt style. Type `p10k configure` to generate
+33c33
+<     # prompt_char           # prompt symbol
+---
+>     prompt_char             # prompt symbol
+85d84
+<     # vi_mode               # vi mode (you don't need this if you've enabled prompt_char)
+96c95
+<     newline                 # \n
+---
+>     newline
+110a110,116
+>   # Basic style options that define the overall look of your prompt. You probably don't want to
+>   # change them.
+>   typeset -g POWERLEVEL9K_BACKGROUND=                            # transparent background
+>   typeset -g POWERLEVEL9K_{LEFT,RIGHT}_{LEFT,RIGHT}_WHITESPACE=  # no surrounding whitespace
+>   typeset -g POWERLEVEL9K_{LEFT,RIGHT}_SUBSEGMENT_SEPARATOR=' '  # separate segments with a space
+>   typeset -g POWERLEVEL9K_{LEFT,RIGHT}_SEGMENT_SEPARATOR=        # no end-of-line symbol
+> 
+122c128
+<   typeset -g POWERLEVEL9K_ICON_BEFORE_CONTENT=
+---
+>   typeset -g POWERLEVEL9K_ICON_BEFORE_CONTENT=true
+127,131c133,136
+<   # Connect left prompt lines with these symbols. You'll probably want to use the same color
+<   # as POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_FOREGROUND below.
+<   typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX='%242F╭─'
+<   typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_PREFIX='%242F├─'
+<   typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='%242F╰─'
+---
+>   # Connect left prompt lines with these symbols.
+>   typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=
+>   typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_PREFIX=
+>   typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=
+133,140c138,159
+<   typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_SUFFIX='%242F─╮'
+<   typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_SUFFIX='%242F─┤'
+<   typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_SUFFIX='%242F─╯'
+< 
+<   # Filler between left and right prompt on the first prompt line. You can set it to ' ', '·' or
+<   # '─'. The last two make it easier to see the alignment between left and right prompt and to
+<   # separate prompt from command output. You might want to set POWERLEVEL9K_PROMPT_ADD_NEWLINE=false
+<   # for more compact prompt if using using this option.
+---
+>   typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_SUFFIX=
+>   typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_SUFFIX=
+>   typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_SUFFIX=
+> 
+>   # The left end of left prompt.
+>   typeset -g POWERLEVEL9K_LEFT_PROMPT_FIRST_SEGMENT_START_SYMBOL=
+>   # The right end of right prompt.
+>   typeset -g POWERLEVEL9K_RIGHT_PROMPT_LAST_SEGMENT_END_SYMBOL=
+> 
+>   # Ruler, a.k.a. the horizontal line before each prompt. If you set it to true, you'll
+>   # probably want to set POWERLEVEL9K_PROMPT_ADD_NEWLINE=false above and
+>   # POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_CHAR=' ' below.
+>   typeset -g POWERLEVEL9K_SHOW_RULER=false
+>   typeset -g POWERLEVEL9K_RULER_CHAR='─'        # reasonable alternative: '·'
+>   typeset -g POWERLEVEL9K_RULER_FOREGROUND=240
+> 
+>   # Filler between left and right prompt on the first prompt line. You can set it to '·' or '─'
+>   # to make it easier to see the alignment between left and right prompt and to separate prompt
+>   # from command output. It serves the same purpose as ruler (see above) without increasing
+>   # the number of prompt lines. You'll probably want to set POWERLEVEL9K_SHOW_RULER=false
+>   # if using this. You might also like POWERLEVEL9K_PROMPT_ADD_NEWLINE=false for more compact
+>   # prompt.
+142,143d160
+<   typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_BACKGROUND=
+<   typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_GAP_BACKGROUND=
+145,147c162,167
+<     # The color of the filler. You'll probably want to match the color of POWERLEVEL9K_MULTILINE
+<     # ornaments defined above.
+<     typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_FOREGROUND=242
+---
+>     # The color of the filler.
+>     typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_FOREGROUND=240
+>     # Add a space between the end of left prompt and the filler.
+>     typeset -g POWERLEVEL9K_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL=' '
+>     # Add a space between the filler and the start of right prompt.
+>     typeset -g POWERLEVEL9K_RIGHT_PROMPT_FIRST_SEGMENT_START_SYMBOL=' '
+154,175d173
+<   # Default background color.
+<   typeset -g POWERLEVEL9K_BACKGROUND=238
+< 
+<   # Separator between same-color segments on the left.
+<   typeset -g POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='%246F\uE0B1'
+<   # Separator between same-color segments on the right.
+<   typeset -g POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR='%246F\uE0B3'
+<   # Separator between different-color segments on the left.
+<   typeset -g POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0B0'
+<   # Separator between different-color segments on the right.
+<   typeset -g POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\uE0B2'
+<   # The right end of left prompt.
+<   typeset -g POWERLEVEL9K_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL='\uE0B0'
+<   # The left end of right prompt.
+<   typeset -g POWERLEVEL9K_RIGHT_PROMPT_FIRST_SEGMENT_START_SYMBOL='\uE0B2'
+<   # The left end of left prompt.
+<   typeset -g POWERLEVEL9K_LEFT_PROMPT_FIRST_SEGMENT_START_SYMBOL=
+<   # The right end of right prompt.
+<   typeset -g POWERLEVEL9K_RIGHT_PROMPT_LAST_SEGMENT_END_SYMBOL=
+<   # Left prompt terminator for lines without any segments.
+<   typeset -g POWERLEVEL9K_EMPTY_LINE_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL=
+< 
+178c176
+<   typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=255
+---
+>   typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=
+183,184d180
+<   # Transparent background.
+<   typeset -g POWERLEVEL9K_PROMPT_CHAR_BACKGROUND=
+199c195
+<   typeset -g POWERLEVEL9K_PROMPT_CHAR_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL=
+---
+>   typeset -g POWERLEVEL9K_PROMPT_CHAR_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL=''
+202,203d197
+<   # No surrounding whitespace.
+<   typeset -g POWERLEVEL9K_PROMPT_CHAR_LEFT_{LEFT,RIGHT}_WHITESPACE=
+337c331
+<   # typeset -g POWERLEVEL9K_DIR_PREFIX='%248Fin '
+---
+>   # typeset -g POWERLEVEL9K_DIR_PREFIX='%fin '
+367c361
+<       local       meta='%248F'  # grey foreground
+---
+>       local       meta='%f'     # default foreground
+478c472
+<   # typeset -g POWERLEVEL9K_VCS_PREFIX='%248Fon '
+---
+>   # typeset -g POWERLEVEL9K_VCS_PREFIX='%fon '
+498c492
+<   typeset -g POWERLEVEL9K_STATUS_OK=true
+---
+>   typeset -g POWERLEVEL9K_STATUS_OK=false
+510c504
+<   typeset -g POWERLEVEL9K_STATUS_ERROR=true
+---
+>   typeset -g POWERLEVEL9K_STATUS_ERROR=false
+533c527
+<   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND=248
+---
+>   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND=101
+539c533
+<   # typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_PREFIX='%248Ftook '
+---
+>   # typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_PREFIX='%ftook '
+545c539
+<   typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND=37
+---
+>   typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND=70
+643c637
+<   # typeset -g POWERLEVEL9K_ASDF_DOTNET_CORE_SHOW_ON_UPGLOB='*.foo|*.bar'
+---
+>   # typeset -g POWERLEVEL9K_ASDF_DOTNET_SHOW_ON_UPGLOB='*.foo|*.bar'
+751,767d744
+<   ###########[ vi_mode: vi mode (you don't need this if you've enabled prompt_char) ]###########
+<   # Text and color for normal (a.k.a. command) vi mode.
+<   typeset -g POWERLEVEL9K_VI_COMMAND_MODE_STRING=NORMAL
+<   typeset -g POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND=106
+<   # Text and color for visual vi mode.
+<   typeset -g POWERLEVEL9K_VI_VISUAL_MODE_STRING=VISUAL
+<   typeset -g POWERLEVEL9K_VI_MODE_VISUAL_FOREGROUND=68
+<   # Text and color for overtype (a.k.a. overwrite and replace) vi mode.
+<   typeset -g POWERLEVEL9K_VI_OVERWRITE_MODE_STRING=OVERTYPE
+<   typeset -g POWERLEVEL9K_VI_MODE_OVERWRITE_FOREGROUND=172
+<   # Text and color for insert vi mode.
+<   typeset -g POWERLEVEL9K_VI_INSERT_MODE_STRING=
+<   typeset -g POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND=66
+< 
+<   # Custom icon.
+<   # typeset -g POWERLEVEL9K_RANGER_VISUAL_IDENTIFIER_EXPANSION='⭐'
+< 
+870c847
+<   # typeset -g POWERLEVEL9K_CONTEXT_PREFIX='%248Fwith '
+---
+>   # typeset -g POWERLEVEL9K_CONTEXT_PREFIX='%fwith '
+1162,1194d1138
+<   ################[ terraform: terraform workspace (https://www.terraform.io) ]#################
+<   # Don't show terraform workspace if it's literally "default".
+<   typeset -g POWERLEVEL9K_TERRAFORM_SHOW_DEFAULT=false
+<   # POWERLEVEL9K_TERRAFORM_CLASSES is an array with even number of elements. The first element
+<   # in each pair defines a pattern against which the current terraform workspace gets matched.
+<   # More specifically, it's P9K_CONTENT prior to the application of context expansion (see below)
+<   # that gets matched. If you unset all POWERLEVEL9K_TERRAFORM_*CONTENT_EXPANSION parameters,
+<   # you'll see this value in your prompt. The second element of each pair in
+<   # POWERLEVEL9K_TERRAFORM_CLASSES defines the workspace class. Patterns are tried in order. The
+<   # first match wins.
+<   #
+<   # For example, given these settings:
+<   #
+<   #   typeset -g POWERLEVEL9K_TERRAFORM_CLASSES=(
+<   #     '*prod*'  PROD
+<   #     '*test*'  TEST
+<   #     '*'       OTHER)
+<   #
+<   # If your current terraform workspace is "project_test", its class is TEST because "project_test"
+<   # doesn't match the pattern '*prod*' but does match '*test*'.
+<   #
+<   # You can define different colors, icons and content expansions for different classes:
+<   #
+<   #   typeset -g POWERLEVEL9K_TERRAFORM_TEST_FOREGROUND=28
+<   #   typeset -g POWERLEVEL9K_TERRAFORM_TEST_VISUAL_IDENTIFIER_EXPANSION='⭐'
+<   #   typeset -g POWERLEVEL9K_TERRAFORM_TEST_CONTENT_EXPANSION='> ${P9K_CONTENT} <'
+<   typeset -g POWERLEVEL9K_TERRAFORM_CLASSES=(
+<       # '*prod*'  PROD    # These values are examples that are unlikely
+<       # '*test*'  TEST    # to match your needs. Customize them as needed.
+<       '*'         OTHER)
+<   typeset -g POWERLEVEL9K_TERRAFORM_OTHER_FOREGROUND=38
+<   # typeset -g POWERLEVEL9K_TERRAFORM_OTHER_VISUAL_IDENTIFIER_EXPANSION='⭐'
+< 
+1280c1224,1257
+<   # typeset -g POWERLEVEL9K_KUBECONTEXT_PREFIX='%248Fat '
+---
+>   # typeset -g POWERLEVEL9K_KUBECONTEXT_PREFIX='%fat '
+> 
+>   ################[ terraform: terraform workspace (https://www.terraform.io) ]#################
+>   # Don't show terraform workspace if it's literally "default".
+>   typeset -g POWERLEVEL9K_TERRAFORM_SHOW_DEFAULT=false
+>   # POWERLEVEL9K_TERRAFORM_CLASSES is an array with even number of elements. The first element
+>   # in each pair defines a pattern against which the current terraform workspace gets matched.
+>   # More specifically, it's P9K_CONTENT prior to the application of context expansion (see below)
+>   # that gets matched. If you unset all POWERLEVEL9K_TERRAFORM_*CONTENT_EXPANSION parameters,
+>   # you'll see this value in your prompt. The second element of each pair in
+>   # POWERLEVEL9K_TERRAFORM_CLASSES defines the workspace class. Patterns are tried in order. The
+>   # first match wins.
+>   #
+>   # For example, given these settings:
+>   #
+>   #   typeset -g POWERLEVEL9K_TERRAFORM_CLASSES=(
+>   #     '*prod*'  PROD
+>   #     '*test*'  TEST
+>   #     '*'       OTHER)
+>   #
+>   # If your current terraform workspace is "project_test", its class is TEST because "project_test"
+>   # doesn't match the pattern '*prod*' but does match '*test*'.
+>   #
+>   # You can define different colors, icons and content expansions for different classes:
+>   #
+>   #   typeset -g POWERLEVEL9K_TERRAFORM_TEST_FOREGROUND=28
+>   #   typeset -g POWERLEVEL9K_TERRAFORM_TEST_VISUAL_IDENTIFIER_EXPANSION='⭐'
+>   #   typeset -g POWERLEVEL9K_TERRAFORM_TEST_CONTENT_EXPANSION='> ${P9K_CONTENT} <'
+>   typeset -g POWERLEVEL9K_TERRAFORM_CLASSES=(
+>       # '*prod*'  PROD    # These values are examples that are unlikely
+>       # '*test*'  TEST    # to match your needs. Customize them as needed.
+>       '*'         OTHER)
+>   typeset -g POWERLEVEL9K_TERRAFORM_OTHER_FOREGROUND=38
+>   # typeset -g POWERLEVEL9K_TERRAFORM_OTHER_VISUAL_IDENTIFIER_EXPANSION='⭐'
+1462c1439
+<   typeset -g POWERLEVEL9K_IP_CONTENT_EXPANSION='${P9K_IP_RX_RATE:+%70F⇣$P9K_IP_RX_RATE }${P9K_IP_TX_RATE:+%215F⇡$P9K_IP_TX_RATE }%38F$P9K_IP_IP'
+---
+>   typeset -g POWERLEVEL9K_IP_CONTENT_EXPANSION='$P9K_IP_IP${P9K_IP_RX_RATE:+ %70F⇣$P9K_IP_RX_RATE}${P9K_IP_TX_RATE:+ %215F⇡$P9K_IP_TX_RATE}'
+1526c1503
+<   # typeset -g POWERLEVEL9K_TIME_PREFIX='%248Fat '
+---
+>   # typeset -g POWERLEVEL9K_TIME_PREFIX='%fat '
