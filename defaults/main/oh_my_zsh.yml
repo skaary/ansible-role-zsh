@@ -1,0 +1,30 @@
+---
+# Oh My ZSH vars.
+omz_install: true
+omz_configure: true
+omz_git_repository: "https://github.com/robbyrussell/oh-my-zsh.git"
+omz_install_directory: "oh-my-zsh"
+omz_install_path: "{{ zsh_user_XDG_CONFIG }}/{{ omz_install_directory }}"
+omz_shared_packages:
+  - git
+  - curl
+
+# Oh My ZSH template vars.
+omz_zshrc_create: true
+omz_zshrc_template: "omz_zshrc.j2"
+omz_zshrc_template_plugins: "omz_zshrc_plugins.j2"
+omz_zshrc_backup: true
+omz_zshrc_force: true
+omz_zsh_theme: "agnoster"
+omz_case_sensitive: false
+omz_hyphen_insensitive: false
+omz_disable_auto_update: false
+omz_update_zsh_days: 13
+omz_disable_ls_colors: false
+omz_disable_auto_title: false
+omz_enable_correction: false
+omz_completion_waiting_dots: false
+omz_disable_untracked_files_dirty: false
+omz_hist_stamps: "dd.mm.yyyy"
+omz_zsh_custom: "$ZSH/custom"
+omz_plugins: []
