@@ -1,0 +1,6 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: zsh
+  description: ZSH and oh-my-zsh for linux.
