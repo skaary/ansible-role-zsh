@@ -2,19 +2,22 @@
 # Oh My ZSH vars.
 omz_install: true
 omz_configure: true
+
 omz_git_repository: "https://github.com/robbyrussell/oh-my-zsh.git"
 omz_install_directory: "oh-my-zsh"
 omz_install_path: "{{ zsh_user_XDG_CONFIG }}/{{ omz_install_directory }}"
+
 omz_shared_packages:
   - git
   - curl
 
-# Oh My ZSH template vars.
 omz_zshrc_create: true
 omz_zshrc_template: "omz_zshrc.j2"
 omz_zshrc_template_plugins: "omz_zshrc_plugins.j2"
 omz_zshrc_backup: true
 omz_zshrc_force: true
+
+# Oh My ZSH template vars.
 omz_zsh_theme: "agnoster"
 omz_case_sensitive: false
 omz_hyphen_insensitive: false

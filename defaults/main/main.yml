@@ -8,10 +8,11 @@ zsh_user:
   #   group: ipsum
 #    settings: |
 #     export PATH="/usr/local/sbin:$path"
-zsh_package_name: zsh
 zsh_user_name: vagrant
 zsh_user_group: vagrant
-zsh_user_home: "/home/{{ zsh_user_name }}"
+
+zsh_package_name: zsh
+
 zsh_user_XDG_CONFIG: "/home/{{ zsh_user_name }}/.config"
 ZDOTDIR: "{{ zsh_user_XDG_CONFIG }}/zsh"
 HISTFILE: "{{ zsh_user_XDG_CONFIG }}/zsh/zsh_history"
@@ -19,12 +20,5 @@ zshrc_path: "{{ ZDOTDIR }}/.zshrc"
 
 # ZSH plugin vars
 zsh_plugin_directory: /usr/share/zsh/plugins
-zsh_plugins_git: #[]
-  - name: zsh-syntax-highlighting
-    zsh_file: zsh-syntax-highlighting.zsh
-    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
-  - name: powerlevel10k
-    zsh_file: powerlevel10k.zsh-theme
-    repo: https://github.com/romkatv/powerlevel10k.git
+zsh_plugins_git: []
 zsh_plugins_package_manager: []
-#   - powerline
