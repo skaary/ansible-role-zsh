@@ -1,6 +1,22 @@
 ---
 - hosts: all
   vars:
-    #
+    zsh_user_name: vagrant
+    zsh_user_group: vagrant
+    zsh_plugins_git:
+      - name: zsh-syntax-highlighting
+        zsh_file: zsh-syntax-highlighting.zsh
+        repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+      - name: powerlevel10k
+        zsh_file: powerlevel10k.zsh-theme
+        repo: https://github.com/romkatv/powerlevel10k.git
+    zsh_plugins_package_manager:
+      - powerline
+    omz_zsh_theme: "robbyrussel"
+
+  pre_tasks:
+    - name: Update apt cache.
+      apt: update_cache=true cache_valid_time=60
+
   roles:
     - ../ansible-role-zsh
