@@ -2,11 +2,18 @@
 - name: Converge
   hosts: all
   vars:
-    users:
-      - name: vagrant
-        group: vagrant
-      - name: ipsum
-        group: ipsum
+    zsh_user_name: molecule
+    zsh_user_group: molecule
+    zsh_plugins_git:
+      - name: zsh-syntax-highlighting
+        zsh_file: zsh-syntax-highlighting.zsh
+        repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+      - name: powerlevel10k
+        zsh_file: powerlevel10k.zsh-theme
+        repo: https://github.com/romkatv/powerlevel10k.git
+    zsh_plugins_package_manager:
+      - powerline
+    omz_zsh_theme: "robbyrussel"
 
   pre_tasks:
     - name: Update apt cache.
@@ -25,6 +32,3 @@
     - name: "Include ansible-role-zsh"
       include_role:
         name: "ansible-role-zsh"
-      vars:
-        zsh_user: "{{ item }}"
-        with_items: "{{ users }}"
