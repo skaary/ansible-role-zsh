@@ -8,6 +8,9 @@
       - name: zsh-syntax-highlighting
         zsh_file: zsh-syntax-highlighting.zsh
         repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+      - name: zsh-autosuggestions
+        zsh_file: zsh-autosuggestions.zsh
+        repo: https://github.com/zsh-users/zsh-autosuggestions.git
       - name: powerlevel10k
         zsh_file: powerlevel10k.zsh-theme
         repo: https://github.com/romkatv/powerlevel10k.git

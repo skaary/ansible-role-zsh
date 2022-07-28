@@ -1,7 +1,7 @@
 ---
 # Oh My ZSH vars.
-omz_install: true
-omz_configure: true
+omz_install: false
+omz_configure: false
 
 omz_git_repository: "https://github.com/robbyrussell/oh-my-zsh.git"
 omz_install_directory: "oh-my-zsh"
@@ -11,7 +11,7 @@ omz_shared_packages:
   - git
   - curl
 
-omz_zshrc_create: true
+omz_zshrc_create: false
 omz_zshrc_template: "omz_zshrc.j2"
 omz_zshrc_template_plugins: "omz_zshrc_plugins.j2"
 omz_zshrc_backup: true
