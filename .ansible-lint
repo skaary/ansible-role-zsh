@@ -1,6 +1,15 @@
+---
 skip_list:
   - 'yaml'
   - 'risky-shell-pipe'
   - 'git-latest'
-  - 'experimental'
+  - 'no-changed-when'
+  - 'fqcn-builtins'
+  - 'var-naming'
+  - 'risky-file-permissions'
   - 'no-handler'
+  
+warn_list:
+  - 'experimental'
+  - 'internal-error'
+
