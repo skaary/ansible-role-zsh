@@ -4,3 +4,13 @@ dependencies: []
 galaxy_info:
   role_name: zsh
   description: ZSH and oh-my-zsh for linux.
+  author: skaary
+  license: "license (BSD, MIT)"
+  min_ansible_version: "2.4"
+  platforms:
+    - name: Ubuntu
+      versions:
+        - xenial
+        - bionic
+        - focal
+
