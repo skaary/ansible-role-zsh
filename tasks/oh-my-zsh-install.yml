@@ -3,6 +3,7 @@
   apt:
     name: "{{ omz_shared_packages }}"
     state: present
+  become: true
 
 - name: clone oh-my-zsh repo
   git:

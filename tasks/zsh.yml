@@ -3,6 +3,7 @@
   apt:
     name: "{{ zsh_package_name }}"
     state: present
+  become: true
 
 - name: register zsh binary path
   command: which zsh
@@ -13,6 +14,7 @@
   user:
     name: "{{ zsh_user_name }}"
     shell: "{{ zsh_bin.stdout }}"
+  become: true
 
 - name: change default path for .zshrc by adding ZDOTDIR env to zshenv
   blockinfile:
